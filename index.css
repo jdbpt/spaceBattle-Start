@@ -1,0 +1,12 @@
+body{
+    max-width: 100%;
+    margin: auto;
+    
+}
+
+#boldlyGreen{
+    color: green;
+    font-weight: bolder;
+    font-size: 200px;
+}
+
