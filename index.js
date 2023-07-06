@@ -102,7 +102,8 @@ const attackAliens = () => {
             console.log(loseGameMessage);
             //alert(loseGameMessage);
             message.innerHTML = loseGameMessage;
-            ship.style.width = "50%";
+            ship.style.width = "0%";
+            ship.style.transition = "width 2s"
             loseGameMessage = "";
             break;
 
@@ -138,8 +139,9 @@ const attackAliens = () => {
         if(loseGameMessage != ""){
             console.log(loseGameMessage);
             message.innerHTML = loseGameMessage;
-            ship.style.transform = "width 0.25s"
-            ship.style.width = "50%";
+           
+            ship.style.width = "0%";
+            ship.style.transition = "width 2s"
 
 
             //alert(loseGameMessage);
