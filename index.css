@@ -1,12 +1,70 @@
-body{
+/* body tag's id */
+#wrapper{
     max-width: 100%;
     margin: auto;
+    /* let's update this default background-color; */
+    background-color: white;
+    /* how about we add a background-image; */
+    /*perhaps a default font size?*/
+    /* TBD */
+    background-color: black;
+    background-image: url("");
+    font-size: 25px;
+}
+
+
+/* my page title's id */
+#page-title{
+    color: violet;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 10px;
     
 }
 
-#boldlyGreen{
-    color: green;
-    font-weight: bolder;
-    font-size: 200px;
+/* start button's id */
+#start-game{
+    color: blueviolet;
+    background-color: orange;
+    height: 75px;
+    width: 150px;
+    border-radius: 20%;
+    font-size:25px;
+    border: 5px solid violet;
+    margin-top: 70px;
+    /* next let's add a font size */
+    /* next we need some better positioning of our button */
+
 }
+
+#destroyed{
+    display: none;
+}
+
+/* rule to make the flex the maverick and enemy */
+#gameBoard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* add some padding to better align the images */
+
+#enemy{
+    padding-bottom: 75px;
+    padding-left: 200px;
+}
+
+#start-messages{
+    color: blueviolet;
+    text-align: center;
+
+}
+
+
+figcaption{
+    color: blueviolet;
+}
+
+
 

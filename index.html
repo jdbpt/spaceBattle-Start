@@ -8,9 +8,30 @@
     <!--Shortcuts are just writing link or script and selecting from the options-->
     <link rel="stylesheet" href="index.css">
     <script defer src="index.js"></script>
-    
+
 </head>
-<body>
-    <h1 id="boldlyGreen">Hello World!</h1>
+<body id="wrapper">
+    <h1 id="page-title">Save The Universe!</h1>
+    <div id="gameBoard">
+        <div id="maverick">    
+            <img src="imgs/USS_Ship.png" alt="Player ship called the Maverick" id="ship">
+            <figcaption><strong>Maverick</strong></figcaption>
+        </div>
+        <div id="enemy">    
+            <img src="imgs/enemy_ship.png" alt="Enemy battle spaceship" id="untouched">
+            <img src="imgs/enemy_ship_dead.png" alt="Enemy battle spaceship destroyed" id="destroyed">
+            <figcaption><strong>Enemy Fleet of Six(6) Ships</strong></figcaption>
+        </div>
+    </div>
+    
+    <div id="start-messages">
+        <button id="start-game">Start Battle</button>
+        <h2 id="message">
+            Press Start Battle to start the game, and see if your ship, the Maverick, can defeat
+            the Enemy battleship hoard of six ships!
+        </h2>
+    </div>
+    
 </body>
 </html>
+
