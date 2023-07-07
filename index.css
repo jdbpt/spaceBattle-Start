@@ -2,11 +2,6 @@
 #wrapper{
     max-width: 100%;
     margin: auto;
-    /* let's update this default background-color; */
-    background-color: white;
-    /* how about we add a background-image; */
-    /*perhaps a default font size?*/
-    /* TBD */
     background-color: black;
     background-image: url("");
     font-size: 25px;
@@ -26,6 +21,7 @@
 }
 
 /* start button's id */
+/* guidance on transition, transform, and buttons: https://www.w3schools.com/howto/howto_css_animate_buttons.asp */
 #start-game{
     color: blueviolet;
     background-color: orange;
@@ -35,9 +31,17 @@
     font-size:25px;
     border: 5px solid violet;
     margin-top: 70px;
-    /* next let's add a font size */
-    /* next we need some better positioning of our button */
+    transition-duration: 0.02s;
 
+}
+
+#start-game:hover{
+    background-color: rgb(195, 85, 85);
+
+}
+
+#start-game:active{
+    transform: translateY(10px);
 }
 
 #destroyed{
@@ -63,6 +67,10 @@
     text-align: center;
     display: flex;
 
+}
+
+#ship{
+    width: 100%;
 }
 
 

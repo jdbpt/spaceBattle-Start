@@ -62,9 +62,9 @@ class Aliens{
 // console.log(randomNum1);
 
 //ship images
-{/* <img src="imgs/enemy_ship.png">
+/* <img src="imgs/enemy_ship.png">
 <img src="imgs/enemy_ship_dead.png">
-<img src="imgs/USS_Ship.png"> */}
+<img src="imgs/USS_Ship.png"> */
 
 
 const maverick = new Ship(20, 5, .7);
@@ -140,8 +140,13 @@ const attackAliens = () => {
             console.log(loseGameMessage);
             message.innerHTML = loseGameMessage;
            
+            //shrink the ship over 2s
             ship.style.width = "0%";
             ship.style.transition = "width 2s"
+
+            //reference on transition: https://developer.mozilla.org/en-US/docs/Web/CSS/transition
+
+        
 
 
             //alert(loseGameMessage);
@@ -153,17 +158,48 @@ const attackAliens = () => {
 let count = 0;
 startButton.addEventListener("click", (event) => {
     console.log(event.target);
+    //set some initial conditions before attackAliens so that the pictures are correct with 
+    //further button presses post count #1
     enemyIntact.style.display = "block";
     enemyDestroyed.style.display = "none";
     ship.style.width = "100%";
+
     attackAliens();
+
+    //reset initial conditions to prepare for further clicks
+    //of the button
     maverick.shiphull = 20;
     alienShips.ships = [];
     alienShips.addAliens();
 
    
 
-});
+});//end startButton addEventListener
+
+// //fix for the single button to play the game
+// //and reload the page option location.reload()
+// //for the startButton
+
+// //create a variable outside of the event listener
+// //to test if need to attackAliens or reload() the page
+// let count = 0;
+// startButton.addEventListener("click", (event) => {
+//     //if count ===0 then attackAliens()
+//     //increment count so that count = 1, so that next
+//     //button click, it will reload() the page
+//     if(count === 0){
+//         attackAliens();
+//         count++;
+//     } else{
+//         //reloads() the page because count = 1
+//         //however, next count--, so that next time
+//         //the button is clicked
+//         //attackAliens is called because count = 0
+//         count--;
+//         location.reload();
+       
+//     }
+// });//end startButton addEventListener
 
 //attackAliens();
 console.log(maverick);
