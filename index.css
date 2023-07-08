@@ -3,6 +3,7 @@
     max-width: 100%;
     margin: auto;
     background-color: black;
+    color: blueviolet;
     background-image: url("");
     font-size: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -73,10 +74,34 @@
     width: 100%;
 }
 
+#round{
+    position:absolute;
+    top: 100px;
+    left: 10px;
+
+}
+#mavW{
+    position:absolute;
+    top: 150px;
+    left: 10px;
+
+}
+#enemyO{
+    position:absolute;
+    top: 100px;
+    right: 10px;
+
+}
+
 
 figcaption{
     color: blueviolet;
 }
+
+
+
+
+
 
 
 

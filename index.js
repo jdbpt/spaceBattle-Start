@@ -68,29 +68,35 @@ class Aliens{
 
 
 const maverick = new Ship(20, 5, .7);
-console.log(maverick);
-console.log("********************************");
 
 const alienShips = new Aliens();
 alienShips.addAliens();
-console.log(alienShips);
-console.log("***********************************");
-console.log("SPACE BATTLE TO SAVE THE UNIVERSE!!!!")
 
-//console.log(alienShips.ships[0].accuracy);
 const startButton = document.getElementById("start-game");
-
+//message on result of battle
 const message = document.getElementById("message");
-
+//images on screen
 const enemyIntact = document.getElementById("untouched");
 const enemyDestroyed = document.getElementById("destroyed");
 const ship = document.getElementById("ship");
+
+//counts to display on screen
+let roundCount = 0;
+const rounds = Array.from(document.getElementsByClassName("round-count"));
+
+let mavWinCount = 0;
+const mavWins = document.getElementById("mav-wins");
+let enemiesDestroyed = 0;
+const enemiesDown = document.getElementById("enemies-down");
 
 const attackAliens = () => {
     let enemyFleet = alienShips.ships;
     let loseGameMessage = "The Maverick hath been Defeated!  The Universe is lost- Game Over";
     let winGameMessage = "The Maverick has been victorious!  They have saved the Universe from the enemy alien scourge!!!!!";
     console.log(enemyFleet);
+    mavWins.innerHTML=mavWinCount;
+    enemiesDestroyed = 0;
+    enemiesDown.innerHTML = enemiesDestroyed;
    
     for(let i = 0; i < enemyFleet.length; i++){
         //alert(`The health of the Maverick Shiphull is: ${maverick.shiphull}
@@ -112,13 +118,16 @@ const attackAliens = () => {
         while(maverick.shiphull > 0 && enemyFleet[i].shiphull > 0){
             console.log(`The current health of the Maverick's shiphull is ${maverick.shiphull}`);
             maverick.fire(enemyFleet[i]);
+            //final self destruct attack in case an enemy is already downed
             enemyFleet[i].fire(maverick);
             console.log("_____________________________");
+            
         
             if(enemyFleet[i].shiphull <= 0){
                 console.log("Alien Ship " + (i+1) + " has been destroyed!!!!");
-                //alert("Alien Ship " + (i+1) + " has been destroyed!!!!");
-                //message.innerHTML = "Alien Ship " + (i+1) + " has been destroyed!!!!";
+                enemiesDestroyed+=1;
+                enemiesDown.innerHTML = enemiesDestroyed;
+
                 break;
             }
         }//end while loop
@@ -132,6 +141,10 @@ const attackAliens = () => {
         message.innerHTML = winGameMessage;
         enemyIntact.style.display = "none";
         enemyDestroyed.style.display = "block";
+        mavWinCount+=1;
+        mavWins.innerHTML=mavWinCount;
+        enemiesDown.innerHTML = enemiesDestroyed;
+
         
     } else{
         //else if maverick.shipfull < 0 and the loseGameMessage is not empty (if empty this message was shown via the for loop)
@@ -146,17 +159,34 @@ const attackAliens = () => {
 
             //reference on transition: https://developer.mozilla.org/en-US/docs/Web/CSS/transition
 
-        
-
-
             //alert(loseGameMessage);
         }
     }//if else
+
+    //in case of a tie
+    if(enemiesDestroyed === 6 && maverick.shiphull<=0){
+        message.innerHTML = "The Maverick fought till the end to save the Universe, a hero\'s send off...";
+        enemyIntact.style.display = "none";
+        enemyDestroyed.style.display = "block";
+        //shrink the ship over 2s
+        mavWinCount+=1;
+        mavWins.innerHTML=mavWinCount;
+        ship.style.width = "0%";
+        ship.style.transition = "width 2s"
+       
+
+    }
 
 }//attackAliens
 
 let count = 0;
 startButton.addEventListener("click", (event) => {
+    roundCount+=1;
+    rounds.forEach(round => {
+        round.innerHTML = roundCount;
+        
+    });
+
     console.log(event.target);
     //set some initial conditions before attackAliens so that the pictures are correct with 
     //further button presses post count #1
