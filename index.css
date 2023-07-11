@@ -4,7 +4,10 @@
     margin: auto;
     background-color: black;
     color: blueviolet;
-    background-image: url("");
+    /* SpaceBkgrd_jdbpt created by jdbpt in Corel Painter student edition 2021 */
+    background-image: url("./imgs/SpaceBkgrd_jdbpt.png");
+    background-size: cover;
+    /* bkgrd size cover resource: https://developer.mozilla.org/en-US/docs/Web/CSS/background-size */
     font-size: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
