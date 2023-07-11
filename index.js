@@ -179,7 +179,6 @@ const attackAliens = () => {
 
 }//attackAliens
 
-let count = 0;
 startButton.addEventListener("click", (event) => {
     roundCount+=1;
     rounds.forEach(round => {
@@ -231,5 +230,4 @@ startButton.addEventListener("click", (event) => {
 //     }
 // });//end startButton addEventListener
 
-//attackAliens();
 console.log(maverick);
